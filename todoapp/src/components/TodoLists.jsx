@@ -2,7 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-export default function TodoLists({ Data, formatDate }) {
+export default function TodoLists({Data,formatDate}) {
   const [edit,setEdit]=useState(null)
   const [editText, setEditText] = useState("");
 
@@ -33,7 +33,7 @@ useEffect(()=>{
 
 
 const handleEdit=(item)=>{
-    setEdit(item.id)
+    setEdit(item._id)
     setEditText(item.todo)
 }
 
@@ -45,12 +45,12 @@ const handleEditSubmit=async()=>{
      headers:{
        "Content-Type":"application/json"
      },
-     body:JSON.stringify({todo:setEdit})  
+     body:JSON.stringify({todo:editText}) 
     })
     const EditedTodo=await res.json()
     
     if(EditedTodo.success){
-     setData((prevData)=>prevData.map((item)=>item._id==edit?{...item,todo:setEditText}:item))
+     setData((prevData)=>prevData.map((item)=>item._id==edit?{...item,todo:editText}:item))
      setEdit(null)
      setEditText('')
     }else{
@@ -68,7 +68,7 @@ const handleEditSubmit=async()=>{
         <div className="flex justify-center items-center my-4">
           <input
             type="text"
-            value={edit}
+            value={editText}
             onChange={(e) => setEditText(e.target.value)}
             placeholder="Edit todo"
             className="border p-2 rounded mr-2"
