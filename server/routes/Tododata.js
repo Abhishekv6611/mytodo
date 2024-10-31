@@ -10,3 +10,5 @@ router.delete('/delete/:id',DeletedProduct)
 router.put('/edit/:id',EditedProduct)
 
 export default router;
+
+

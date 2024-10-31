@@ -58,6 +58,10 @@ export default function TodoHome() {
     }
   };
 
+
+
+
+
   return (
     <div>
       <Navbar />
@@ -72,6 +76,7 @@ export default function TodoHome() {
               placeholder="ENTER YOUR TODO LIST"
               className="border rounded border-black lg:p-2 p-1"
             />
+            
             <div className="sm:text-sm">
               <button
                 className="bg-blue-600 font-light p-3 rounded-md text-white hover:bg-blue-700"
@@ -88,7 +93,7 @@ export default function TodoHome() {
           Oops you got nothing in your TodoList😉🕷
         </h1>
       ) : (
-        <TodoLists Data={Data} formatDate={formatDate} />
+        <TodoLists Data={Data} formatDate={formatDate} fetchData={fetchData}/>
       )}
     </div>
   );
