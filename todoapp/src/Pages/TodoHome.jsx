@@ -93,7 +93,7 @@ export default function TodoHome() {
           Oops you got nothing in your TodoList😉🕷
         </h1>
       ) : (
-        <TodoLists Data={Data} formatDate={formatDate} fetchData={fetchData}/>
+        <TodoLists Data={Data} formatDate={formatDate}/>
       )}
     </div>
   );

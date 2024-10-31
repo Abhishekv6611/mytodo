@@ -2,7 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-export default function TodoLists({Data,formatDate}) {
+export default function TodoLists(Data,formatDate) {
   const [edit,setEdit]=useState(null)
   const [editText, setEditText] = useState("");
 
